@@ -14,3 +14,5 @@ RUN pip install -r requirements.txt
 
 # Run web service on container using gunicorn
 CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
+
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "run:app"]
